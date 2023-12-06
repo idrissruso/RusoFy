@@ -8,8 +8,12 @@ export const themeSlice = createSlice({
   name: 'theme',
   initialState,
   reducers: {
-    changeTheme: (state) =>
-      (state.theme = state.theme === 'dark' ? 'light' : 'dark'),
+    changeTheme: (state) => {
+      return {
+        ...state,
+        theme: state.theme === 'dark' ? 'light' : 'dark',
+      }
+    },
   },
 })
 

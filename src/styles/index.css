@@ -3,3 +3,36 @@
 @tailwind utilities;
 
 /* styled components */
+/* styles.css or in your component's styles */
+
+:root,
+:root.light {
+  --btn-100: #dbe1fd;
+  --primary-100: #021530;
+  --primary-200: #fffefe;
+  --primary-300: #f1f6fe;
+  --primary-400: #dee5f0;
+  --secondary-100: #473aa0;
+  --secondary-200: #3b3187;
+  --tertiary-100: #057bfe;
+  --tertiary-200: #0069e0;
+}
+
+:root.dark {
+  --btn-100: #301c27;
+  --primary-100: #414459;
+  --primary-200: #262835;
+  --primary-300: #2f2f35;
+  --primary-400: #4d4d4d;
+  --primary-500: #000000;
+  --secondary-100: #bf94f8;
+  --secondary-200: #aa73f7;
+  --secondary-300: #8f4ff6;
+  --secondary-400: #7e2df5;
+  --secondary-500: #6a0af4;
+  --tertiary-100: #ff7bc7;
+  --tertiary-200: #ff5ebc;
+  --tertiary-300: #ff3fb1;
+  --tertiary-400: #ff1da7;
+  --tertiary-500: #ff009c;
+}

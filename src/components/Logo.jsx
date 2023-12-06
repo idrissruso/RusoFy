@@ -1,8 +1,10 @@
 function Logo() {
   return (
-    <div>
-      <span>R</span>
-    </div>
+    <button
+      className={`bg-tertiary-100 px-4 py-1 text-3xl rounded-md font-semibold`}
+    >
+      R
+    </button>
   )
 }
 
