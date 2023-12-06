@@ -4,12 +4,12 @@ function LoginBar() {
   const theme = 'dark'
   return (
     <div
-      className={`bg-${theme}-primary-100 flex px-[13%] py-1.5 justify-end text-slate-300 text-sm gap-7`}
+      className={`flex px-[15%] py-2 sm:justify-end justify-center text-slate-300 text-sm gap-7 bg-${theme}-primary-100`}
     >
       <Link to={'/login'}>
-        <span className=" hover:underline cursor-pointer">Sign in/ Guest</span>
+        <span className=" hover:underline cursor-pointer">Sign in / Guest</span>
       </Link>
-      <Link>
+      <Link to={'/register'}>
         <span className=" hover:underline cursor-pointer">Create Account</span>
       </Link>
     </div>
