@@ -1,7 +1,11 @@
-import { NavLink } from 'react-router-dom'
+import NavItems from './NavItems'
 
 function Navbar() {
-  return <div className="bg-slate-950"></div>
+  return (
+    <div className="bg-slate-950">
+      <NavItems />
+    </div>
+  )
 }
 
 export default Navbar
