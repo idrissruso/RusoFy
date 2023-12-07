@@ -11,20 +11,26 @@ function Toggle() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    document.querySelector('html').classList.toggle('dark')
-  })
+    if (theme === 'dark') {
+      document.documentElement.classList.add('light')
+      document.documentElement.classList.remove('dark')
+    } else {
+      document.documentElement.classList.remove('light')
+      document.documentElement.classList.add('dark')
+    }
+  }, [theme])
 
   const rotationStyle = {
     transition: 'transform 0.3s ease', // Adjust the duration and easing as needed
-    transform: theme === 'dark' ? 'rotate(180deg)' : 'rotate(0deg)',
+    transform: theme === 'dark' ? 'rotate(0deg)' : 'rotate(180deg)',
   }
   return (
     <span
       style={rotationStyle}
-      className="cursor-pointer"
+      className="cursor-pointer text-"
       onClick={() => dispatch(changeTheme())}
     >
-      {theme === 'dark' ? <BsFillSunFill /> : <HiMoon />}
+      {theme === 'dark' ? <HiMoon size={20} /> : <BsFillSunFill size={20} />}
     </span>
   )
 }

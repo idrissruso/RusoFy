@@ -15,6 +15,8 @@ export default {
           300: 'var(--primary-300)',
           400: 'var(--primary-400)',
           500: 'var(--primary-500)',
+          600: 'var(--primary-600)',
+          text: 'var(--primary-text)',
         },
         secondary: {
           100: 'var(--secondary-100)',

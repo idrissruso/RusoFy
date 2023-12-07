@@ -5,10 +5,10 @@ import Toggle from './Toggle'
 
 function Navbar() {
   return (
-    <div className="bg-slate-950 px-[15%] py-2 flex items-center justify-between">
+    <div className="px-[15%] py-2 flex items-center justify-between bg-primary-600 ">
       <Logo />
       <NavItems />
-      <div className="text-stone-50 flex items-center">
+      <div className="text-primary-text flex items-center gap-[25%]">
         <Toggle />
         <Cart />
       </div>
