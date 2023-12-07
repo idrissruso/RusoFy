@@ -1,30 +1,16 @@
-import { NavLink } from 'react-router-dom'
-
+import MenuToggle from './MenuToggle'
+import NavItem from './NavItem'
 function NavItems() {
   return (
     <div>
-      <ul className="flex">
+      <ul className="lg:flex hidden text-primary-text">
         <NavItem link="/Home" text="Home" />
         <NavItem link="/about" text="About" />
         <NavItem link="/products" text="Products" />
         <NavItem link="/orders" text="Orders" />
       </ul>
+      <MenuToggle />
     </div>
-  )
-}
-
-function NavItem({ link, text }) {
-  return (
-    <li className="">
-      <NavLink
-        className={
-          'hover:bg-primary-400 rounded-md px-5 py-2 text-xs transition-colors duration-300 text-primary-text'
-        }
-        to={link}
-      >
-        {text}
-      </NavLink>
-    </li>
   )
 }
 

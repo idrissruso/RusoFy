@@ -11,7 +11,7 @@ function Toggle() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (theme === 'dark') {
+    if (theme !== 'dark') {
       document.documentElement.classList.add('light')
       document.documentElement.classList.remove('dark')
     } else {
@@ -27,7 +27,7 @@ function Toggle() {
   return (
     <span
       style={rotationStyle}
-      className="cursor-pointer text-"
+      className="cursor-pointer"
       onClick={() => dispatch(changeTheme())}
     >
       {theme === 'dark' ? <HiMoon size={20} /> : <BsFillSunFill size={20} />}

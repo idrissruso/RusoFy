@@ -7,7 +7,7 @@ function AppLayout() {
     <div className="flex flex-col min-h-screen">
       <LoginBar />
       <Navbar />
-      <main>
+      <main className="bg-primary-200 flex-1">
         <Outlet />
       </main>
     </div>
