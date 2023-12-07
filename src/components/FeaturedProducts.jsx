@@ -12,7 +12,7 @@ function FeaturedProducts() {
       <h1 className="text-3xl text-primary-text border-b-[1.5px] py-5 border-btn-100">
         Featured Products
       </h1>
-      <div className="flex gap-5">
+      <div className="flex gap-5 flex-wrap">
         <ProductCard product={SampleProduct} />
         <ProductCard product={SampleProduct} />
         <ProductCard product={SampleProduct} />
