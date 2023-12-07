@@ -5,6 +5,17 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      keyframes: {
+        fadeUp: {
+          '0%': {
+            transform: 'scale(.8)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'scale(1)',
+          },
+        },
+      },
       colors: {
         btn: {
           100: 'var(--btn-100)',
@@ -32,6 +43,9 @@ export default {
           400: 'var(--tertiary-400)',
           500: 'var(--tertiary-500)',
         },
+      },
+      animation: {
+        fadeUp: 'fadeUp 0.3s ease-in-out',
       },
     },
   },
