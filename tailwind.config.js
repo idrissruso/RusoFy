@@ -5,6 +5,9 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      transitionProperty: {
+        'drop-shadow': 'drop-shadow',
+      },
       keyframes: {
         fadeUp: {
           '0%': {
@@ -24,6 +27,17 @@ export default {
           },
           '100%': {
             transform: 'translateY(0)',
+          },
+        },
+        shakeLeft: {
+          '0%': {
+            transform: 'translateX(5px)',
+          },
+          '50%': {
+            transform: 'translateX(-5px)',
+          },
+          '100%': {
+            transform: 'translateX(0)',
           },
         },
       },
@@ -58,6 +72,7 @@ export default {
       animation: {
         fadeUp: 'fadeUp 0.3s ease-in-out',
         goUp: 'goUp 0.3s ease-in-out',
+        shakeLeft: 'shakeLeft 0.3s ease-in-out',
       },
     },
   },
