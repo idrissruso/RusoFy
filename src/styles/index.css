@@ -20,6 +20,8 @@
   --secondary-200: #3b3187;
   --tertiary-100: #057bfe;
   --tertiary-200: #0069e0;
+  --tertiary-300: #ff7bc7;
+  --tertiary-400: #ff5ebc;
 }
 
 :root.dark {
@@ -39,9 +41,8 @@
   --secondary-500: #6a0af4;
   --tertiary-100: #ff7bc7;
   --tertiary-200: #ff5ebc;
-  --tertiary-300: #ff3fb1;
-  --tertiary-400: #ff1da7;
-  --tertiary-500: #ff009c;
+  --tertiary-300: #ffb96a;
+  --tertiary-400: #ff9e4f;
 }
 
 :root.light .active {

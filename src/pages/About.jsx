@@ -11,7 +11,7 @@ text-btn-100 rounded-xl"
             RusoFy
           </span>
         </h1>
-        <span className="text-primary-text lg:leading-8 leading-8 lg:text-base text-sm  md:px-[10%]">
+        <span className="text-primary-text lg:leading-8 leading-8 lg:text-base text-sm  md:px-[20%]">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore quae
           quam blanditiis vitae, dolor non eveniet ipsum voluptatibus, quia
           optio aut! Perferendis ipsa cumque ipsam nostrum reprehenderit ad illo

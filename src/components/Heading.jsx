@@ -12,7 +12,7 @@ function Heading() {
         doloremque earum est, enim quidem incidunt corporis reprehenderit neque
         nam?
       </p>
-      <Button />
+      <Button type={'primary'} text={'OUR PRODUCTS'} size={'lg'} />
     </div>
   )
 }

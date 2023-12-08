@@ -15,6 +15,17 @@ export default {
             transform: 'scale(1)',
           },
         },
+        goUp: {
+          '0%': {
+            transform: 'translateY(50%)',
+          },
+          '50%': {
+            transform: 'translateY(-15%)',
+          },
+          '100%': {
+            transform: 'translateY(0)',
+          },
+        },
       },
       colors: {
         btn: {
@@ -46,6 +57,7 @@ export default {
       },
       animation: {
         fadeUp: 'fadeUp 0.3s ease-in-out',
+        goUp: 'goUp 0.3s ease-in-out',
       },
     },
   },
