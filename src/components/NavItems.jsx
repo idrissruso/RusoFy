@@ -7,6 +7,8 @@ function NavItems() {
         <NavItem link="/Home" text="Home" />
         <NavItem link="/about" text="About" />
         <NavItem link="/products" text="Products" />
+        <NavItem link="/cart" text="Cart" />
+        <NavItem link="/checkout" text="Checkout" />
         <NavItem link="/orders" text="Orders" />
       </ul>
       <MenuToggle />

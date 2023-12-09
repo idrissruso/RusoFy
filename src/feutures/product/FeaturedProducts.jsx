@@ -1,4 +1,5 @@
-import ProductCard from '../feutures/product/ProductCard'
+import ProductCard from './ProductCard'
+import PageHeader from '../../components/PageHeaders'
 
 const SampleProduct = {
   name: 'Product Name',
@@ -9,9 +10,7 @@ const SampleProduct = {
 function FeaturedProducts() {
   return (
     <div className="mt-20 flex flex-col">
-      <h1 className="text-3xl text-primary-text border-b-[1.5px] py-5 border-btn-100">
-        Featured Products
-      </h1>
+      <PageHeader>Featured Products</PageHeader>
       <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         <ProductCard product={SampleProduct} />
         <ProductCard product={SampleProduct} />

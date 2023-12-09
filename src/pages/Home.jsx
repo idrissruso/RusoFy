@@ -1,6 +1,6 @@
 import FrontImages from '../components/FrontImages'
 import Heading from '../components/Heading'
-import FeaturedProducts from '../components/FeaturedProducts'
+import FeaturedProducts from '../feutures/product/FeaturedProducts'
 function Home() {
   return (
     <>
