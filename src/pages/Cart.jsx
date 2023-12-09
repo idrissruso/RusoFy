@@ -1,7 +1,9 @@
+import PageHeader from '../components/PageHeaders'
+
 function Cart() {
   return (
     <div>
-      <h1>Cart</h1>
+      <PageHeader>Shopping Cart</PageHeader>
     </div>
   )
 }

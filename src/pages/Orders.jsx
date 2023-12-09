@@ -1,7 +1,9 @@
+import PageHeader from '../components/PageHeaders'
+
 function Orders() {
   return (
     <div>
-      <h1>Orders</h1>
+      <PageHeader>Your Orders</PageHeader>
     </div>
   )
 }

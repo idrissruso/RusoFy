@@ -1,7 +1,9 @@
+import PageHeader from '../components/PageHeaders'
+
 function Checkout() {
   return (
     <div>
-      <h1>Checkout</h1>
+      <PageHeader>Place your Order</PageHeader>
     </div>
   )
 }
