@@ -21,7 +21,8 @@ function Input({ type, options, name, id, onChange, value }) {
           defaultValue={'all'}
           className="bg-primary-200 border-[1px] border-gray-500 rounded-lg px-2 py-1 text-primary-text focus:outline-none focus:ring-1 focus:ring-gray-500 active:ring-1 active:ring-gray-500"
         >
-          <option value="">all</option>
+          {type === 'amount' ? null : <option value="">all</option>}
+
           {options.map((option) => (
             <option key={option} value={option}>
               {option}

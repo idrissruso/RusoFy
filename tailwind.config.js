@@ -44,6 +44,7 @@ export default {
       colors: {
         btn: {
           100: 'var(--btn-100)',
+          200: 'var(--btn-200)',
         },
         primary: {
           100: 'var(--primary-100)',

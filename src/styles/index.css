@@ -8,6 +8,7 @@
 :root,
 :root.light {
   --btn-100: #dbe1fd;
+  --btn-200: #cfd8e9;
   --primary-100: #021530;
   --primary-200: #fffefe;
   --primary-300: #f1f6fe;
@@ -27,6 +28,7 @@
 
 :root.dark {
   --btn-100: #1b1619;
+  --btn-200: #42444f;
   --primary-100: #414459;
   --primary-200: #262835;
   --primary-300: #2f2f35;
