@@ -1,4 +1,4 @@
-function Input({ type, options, name, id, onChange, value }) {
+function Input({ type, options, name, id, onChange, value, size }) {
   return (
     <div className="flex flex-col gap-2">
       <label htmlFor={id} className="text-primary-text">
@@ -10,7 +10,9 @@ function Input({ type, options, name, id, onChange, value }) {
           id={id}
           onChange={onChange}
           value={value}
-          className="bg-primary-200 border-[1px] border-gray-500 rounded-lg px-2 py-1 text-primary-text focus:outline-none focus:ring-1 focus:ring-gray-500 active:ring-1 active:ring-gray-500"
+          className={`bg-primary-200 border-[1px] border-gray-500 rounded-lg px-2 py-1 text-primary-text focus:outline-none focus:ring-1 focus:ring-gray-500 active:ring-1 active:ring-gray-500 ${
+            size && 'px-3.5 py-2.5'
+          }`}
         />
       ) : (
         <select

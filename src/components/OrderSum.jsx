@@ -1,6 +1,6 @@
 function OrderSum() {
   return (
-    <div className="flex flex-col gap-2 bg-primary-600 min-w-[20rem] px-7 py-8 rounded-xl text-xs">
+    <div className="flex flex-col gap-2 bg-primary-600 min-w-[20rem] px-7 py-8 rounded-2xl text-xs text-primary-text drop-shadow-xl">
       <Row title="Subtotal" value="$ 100" />
       <Row title="Shipping" value="$ 10" />
       <Row title="Tax" value="$ 10" />
