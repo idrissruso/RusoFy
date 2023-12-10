@@ -1,0 +1,232 @@
+[
+  {
+    "name": "John Lamp",
+    "price": 179.99,
+    "description": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge",
+    "image_url": "https://images.pexels.com/photos/943150/pexels-photo-943150.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "category": 1,
+    "company": 1,
+    "color": "Assorted",
+    "shipping_cost": 10.99
+  },
+  {
+    "name": "Carter Bench",
+    "price": 119.99,
+    "description": "Echo park franzen DIY vexillologist. Mustache migas palo santo, helvetica venmo vegan four dollar toast stumptown craft beer sustainable.",
+    "image_url": "https://images.pexels.com/photos/5705090/pexels-photo-5705090.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "category": 2,
+    "company": 1,
+    "color": "Teak",
+    "shipping_cost": 13.99
+  },
+  {
+    "name": "Gabriel Clock",
+    "price": 49.99,
+    "description": "Craft beer plaid blue bottle shaman irony. Gluten-free salvia fap letterpress, fam stumptown.",
+    "image_url": "https://images.pexels.com/photos/3679601/pexels-photo-3679601.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "category": 3,
+    "company": 2,
+    "color": "Brass",
+    "shipping_cost": 7.99
+  },
+  {
+    "name": "Dylan Tray",
+    "price": 29.99,
+    "description": "Sartorial keffiyeh offal lomo waistcoat tousled. Normcore mumblecore semiotics truffaut.",
+    "image_url": "https://images.pexels.com/photos/1034584/pexels-photo-1034584.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "category": 1,
+    "company": 1,
+    "color": "Copper",
+    "shipping_cost": 5.99
+  },
+  {
+    "name": "Nathan Cart",
+    "price": 89.99,
+    "description": "Celiac pug chillwave readymade photo booth. Godard chambray plaid 90's gentrify hashtag irony neutra vaporware.",
+    "image_url": "https://images.pexels.com/photos/1571459/pexels-photo-1571459.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "category": 2,
+    "company": 1,
+    "color": "Maple",
+    "shipping_cost": 9.99
+  },
+  {
+    "name": "Isaac Screen",
+    "price": 109.99,
+    "description": "Vegan pickled cold-pressed roof party whatever pop-up farm-to-table direct trade skateboard lumbersexual. Craft beer butcher normcore cray.",
+    "image_url": "https://images.pexels.com/photos/2029694/pexels-photo-2029694.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "category": 3,
+    "company": 2,
+    "color": "Mahogany",
+    "shipping_cost": 11.99
+  },
+  {
+    "name": "Samuel Rack",
+    "price": 79.99,
+    "description": "Mlkshk 90's forage fashion axe, four dollar toast enamel pin XOXO letterpress kinfolk meditation activated charcoal. Pug sustainable distillery kale chips small batch fam butcher thundercats.",
+    "image_url": "https://images.pexels.com/photos/2177482/pexels-photo-2177482.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "category": 2,
+    "company": 1,
+    "color": "Slate",
+    "shipping_cost": 10.99
+  },
+  {
+    "name": "Gavin Organizer",
+    "price": 39.99,
+    "description": "Butcher meditation subway tile adaptogen, DIY raw denim pabst kinfolk next level chartreuse before they sold out mixtape twee. Marfa glossier vaporware tbh readymade photo booth.",
+    "image_url": "https://images.pexels.com/photos/1571452/pexels-photo-1571452.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "category": 1,
+    "company": 2,
+    "color": "Steel",
+    "shipping_cost": 6.99
+  },
+  {
+    "name": "Wyatt Hanger",
+    "price": 19.99,
+    "description": "Poke polaroid hashtag selvage leggings pabst, lo-fi chicharrones 8-bit. Distillery hoodie try-hard blog chillwave banjo seitan shabby chic schlitz pitchfork chambray.",
+    "image_url": "https://images.pexels.com/photos/6489083/pexels-photo-6489083.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "category": 3,
+    "company": 3,
+    "color": "Silver",
+    "shipping_cost": 4.99
+  },
+  {
+    "name": "Henry Basket",
+    "price": 59.99,
+    "description": "Flannel umami tattooed drinking vinegar meh bespoke. Banh mi la croix man braid plaid irony. 8-bit letterpress bitters helvetica gentrify.",
+    "image_url": "https://images.pexels.com/photos/2082090/pexels-photo-2082090.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "category": 2,
+    "company": 1,
+    "color": "Bronze",
+    "shipping_cost": 8.99
+  },
+  {
+    "name": "Oliver Stand",
+    "price": 29.99,
+    "description": "La croix fixie gastropub brooklyn, roof party intelligentsia venmo. Vape artisan cliche hella man braid succulents DIY.",
+    "image_url": "https://images.pexels.com/photos/2029694/pexels-photo-2029694.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "category": 1,
+    "company": 2,
+    "color": "Gold",
+    "shipping_cost": 5.99
+  },
+  {
+    "name": "Noah Coffee Table",
+    "price": 129.99,
+    "description": "Health goth vape locavore, leggings VHS hella pabst listicle fixie kombucha PBR&B. Polaroid DIY crucifix tousled lumbersexual single-origin coffee.",
+    "image_url": "https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "category": 1,
+    "company": 2,
+    "color": "Walnut",
+    "shipping_cost": 9.99
+  },
+  {
+    "name": "Oliver Side Table",
+    "price": 79.99,
+    "description": "Bespoke salvia synth, single-origin coffee live-edge hashtag trust fund vinyl craft beer retro four loko before they sold out.",
+    "image_url": "https://images.pexels.com/photos/6480707/pexels-photo-6480707.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "category": 3,
+    "company": 1,
+    "color": "Mahogany",
+    "shipping_cost": 7.99
+  },
+  {
+    "name": "Elijah Nightstand",
+    "price": 99.99,
+    "description": "Tacos chambray prism intelligentsia yr fixie fanny pack. Kinfolk normcore crucifix, tilde raw denim actually dreamcatcher organic selvage YOLO pitchfork.",
+    "image_url": "https://images.pexels.com/photos/447592/pexels-photo-447592.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "category": 2,
+    "company": 2,
+    "color": "Espresso",
+    "shipping_cost": 8.99
+  },
+  {
+    "name": "Aiden Bedside Table",
+    "price": 49.99,
+    "description": "Selvage narwhal tattooed polaroid, pabst bitters kombucha. XOXO shoreditch copper mug DIY listicle pitchfork la croix vexillologist glossier.",
+    "image_url": "https://images.pexels.com/photos/4316737/pexels-photo-4316737.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "category": 1,
+    "company": 1,
+    "color": "Cherry",
+    "shipping_cost": 5.99
+  },
+  {
+    "name": "Caleb Dresser",
+    "price": 199.99,
+    "description": "Enamel pin mixtape meditation, actually brunch butcher narwhal mlkshk. Craft beer sartorial prism, food truck umami lo-fi tacos deep v.",
+    "image_url": "https://images.pexels.com/photos/4857775/pexels-photo-4857775.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "category": 3,
+    "company": 1,
+    "color": "Slate",
+    "shipping_cost": 15.99
+  },
+  {
+    "name": "Nathan Wardrobe",
+    "price": 179.99,
+    "description": "Crucifix 3 wolf moon polaroid tbh seitan. Copper mug 90's post-ironic aesthetic bicycle rights try-hard XOXO tattooed swag fixie DIY.",
+    "image_url": "https://images.pexels.com/photos/16869701/pexels-photo-16869701/free-photo-of-modern-luxury-real-estate-property-interior-bedroom.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "category": 2,
+    "company": 2,
+    "color": "Maple",
+    "shipping_cost": 13.99
+  },
+  {
+    "name": "Isaac Ottoman",
+    "price": 89.99,
+    "description": "Bushwick shabby chic vinyl echo park, PBR&B tbh tumeric keytar banh mi williamsburg. Ethical sriracha vexillologist blog.",
+    "image_url": "https://images.pexels.com/photos/116910/pexels-photo-116910.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "category": 1,
+    "company": 1,
+    "color": "Steel",
+    "shipping_cost": 10.99
+  },
+  {
+    "name": "Lucas Sofa",
+    "price": 249.99,
+    "description": "Mixtape bitters umami, kickstarter photo booth post-ironic chicharrones fixie shabby chic. Distillery art party blog, mustache venmo PBR&B lumbersexual.",
+    "image_url": "https://images.pexels.com/photos/890669/pexels-photo-890669.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "category": 3,
+    "company": 2,
+    "color": "Oak",
+    "shipping_cost": 17.99
+  },
+  {
+    "name": "Henry Bed",
+    "price": 279.99,
+    "description": "Distillery gochujang swag chillwave. Helvetica occupy ethical hashtag kickstarter four loko. Semiotics gentrify glossier yuccie, prism succulents copper mug.",
+    "image_url": "https://images.pexels.com/photos/6758398/pexels-photo-6758398.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "category": 2,
+    "company": 1,
+    "color": "Mahogany",
+    "shipping_cost": 16.99
+  },
+  {
+    "name": "Jackson Dining Table",
+    "price": 149.99,
+    "description": "Fingerstache cold-pressed waistcoat, seitan banh mi VHS single-origin coffee. Mumblecore la croix keytar vaporware, VHS vinyl actually cardigan banjo banh mi.",
+    "image_url": "https://images.pexels.com/photos/3932929/pexels-photo-3932929.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "category": 1,
+    "company": 2,
+    "color": "Walnut",
+    "shipping_cost": 14.99
+  },
+  {
+    "name": "Ethan Bookshelf",
+    "price": 169.99,
+    "description": "Cred microdosing forage, green juice vegan subway tile. Fashion axe ugh taiyaki kombucha meditation. Man braid disrupt sriracha, pabst bitters farm-to-table neutra.",
+    "image_url": "https://images.pexels.com/photos/6438961/pexels-photo-6438961.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "category": 3,
+    "company": 1,
+    "color": "Maple",
+    "shipping_cost": 12.99
+  },
+  {
+    "name": "Avery Armchair",
+    "price": 199.99,
+    "description": "Cardigan pickled meditation, hashtag salvia activated charcoal pug post-ironic. 8-bit pour-over chia helvetica trust fund, franzen stumptown.",
+    "image_url": "https://images.pexels.com/photos/6760040/pexels-photo-6760040.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "category": 1,
+    "company": 2,
+    "color": "Walnut",
+    "shipping_cost": 15.99
+  }
+]
