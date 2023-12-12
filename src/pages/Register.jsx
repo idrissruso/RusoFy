@@ -23,7 +23,7 @@ function Register() {
       toast.success('Registered Successfully')
       navigate('/login')
     } else {
-      toast.error((await result).error)
+      toast.error((await result).result)
     }
   }
 
