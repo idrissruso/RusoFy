@@ -1,11 +1,10 @@
 import { backendUrl } from '../utils/urls'
 
-export default async function register(e) {
-  e.preventDefault()
-
+export default async function register(name, email, password) {
   const data = {
-    email: e.target.email.value,
-    password: e.target.password.value,
+    name,
+    email,
+    password,
   }
 
   try {
@@ -23,6 +22,12 @@ export default async function register(e) {
 
     return { status: response.status }
   } catch (error) {
-    return { status: 400, error: error.message }
+    return {
+      status: 400,
+      error:
+        error.message === 'Failed to fetch'
+          ? 'Origin is not allowed by Access-Control-Allow-Origin, try running the backend server or use a CORS plugin'
+          : 'Email already exists',
+    }
   }
 }

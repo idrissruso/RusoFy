@@ -1,4 +1,8 @@
-function Input({ type, options, name, id, onChange, value, size }) {
+function Input({ type = 'text', options, name, id, onChange, value, size }) {
+  const inputStyles = `bg-primary-200 border-[1px] border-gray-500 rounded-lg px-2 py-1 text-primary-text focus:outline-none focus:ring-1 focus:ring-gray-500 active:ring-1 active:ring-gray-500 ${
+    size && 'px-3.5 py-2.5'
+  }`
+
   return (
     <div className="flex flex-col gap-2">
       <label htmlFor={id} className="text-primary-text">
@@ -6,13 +10,11 @@ function Input({ type, options, name, id, onChange, value, size }) {
       </label>
       {type === 'text' ? (
         <input
-          type="text"
+          type={type}
           id={id}
-          onChange={onChange}
+          onChange={(e) => onChange(e.target.value)}
           value={value}
-          className={`bg-primary-200 border-[1px] border-gray-500 rounded-lg px-2 py-1 text-primary-text focus:outline-none focus:ring-1 focus:ring-gray-500 active:ring-1 active:ring-gray-500 ${
-            size && 'px-3.5 py-2.5'
-          }`}
+          className={inputStyles}
         />
       ) : (
         <select
@@ -20,10 +22,10 @@ function Input({ type, options, name, id, onChange, value, size }) {
           id={id}
           onChange={onChange}
           value={value}
-          defaultValue={'all'}
-          className="bg-primary-200 border-[1px] border-gray-500 rounded-lg px-2 py-1 text-primary-text focus:outline-none focus:ring-1 focus:ring-gray-500 active:ring-1 active:ring-gray-500"
+          defaultValue="all"
+          className={inputStyles}
         >
-          {type === 'amount' ? null : <option value="">all</option>}
+          {type !== 'amount' && <option value="">all</option>}
 
           {options.map((option) => (
             <option key={option} value={option}>

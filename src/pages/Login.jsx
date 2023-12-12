@@ -5,7 +5,10 @@ import { Link } from 'react-router-dom'
 function Login() {
   return (
     <div className="min-h-screen bg-primary-200 flex justify-center items-center">
-      <div className="flex flex-col gap-8 w-[25rem] drop-shadow-xl bg-primary-200 p-14">
+      <form
+        onSubmit={() => {}}
+        className="flex flex-col gap-8 w-[25rem] drop-shadow-xl bg-primary-200 p-14"
+      >
         <h1 className="text-primary-text text-xl font-semibold text-center">
           Login
         </h1>
@@ -20,7 +23,7 @@ function Login() {
             </span>
           </p>
         </div>
-      </div>
+      </form>
     </div>
   )
 }
