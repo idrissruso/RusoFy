@@ -1,19 +1,50 @@
 import Input from '../components/Input'
 import Button from '../components/Button'
 import { Link } from 'react-router-dom'
+import login from '../services/loginService'
+import { useState } from 'react'
+import toast from 'react-hot-toast'
 
 function Login() {
+  const [userName, setUserName] = useState('')
+  const [password, setPassword] = useState('')
+  async function handleSubmit(e) {
+    e.preventDefault()
+    const username = e.target.name.value
+    const password = e.target.password.value
+    const result = await login(username, password)
+    if (result.status === 200) {
+      toast.success(result.result)
+    } else {
+      toast.error(result.result)
+    }
+  }
+
   return (
     <div className="min-h-screen bg-primary-200 flex justify-center items-center">
       <form
-        onSubmit={() => {}}
+        onSubmit={handleSubmit}
         className="flex flex-col gap-8 w-[25rem] drop-shadow-xl bg-primary-200 p-14"
       >
         <h1 className="text-primary-text text-xl font-semibold text-center">
           Login
         </h1>
-        <Input type={'text'} size={'lg'} name={'User Name'} id={'name'} />
-        <Input type={'text'} size={'lg'} name={'Password'} id={'password'} />
+        <Input
+          type={'text'}
+          size={'lg'}
+          name={'User Name'}
+          id={'name'}
+          value={userName}
+          onChange={(value) => setUserName(value)}
+        />
+        <Input
+          type={'text'}
+          size={'lg'}
+          name={'Password'}
+          id={'password'}
+          value={password}
+          onChange={(value) => setPassword(value)}
+        />
         <Button type={'primary'} text={'LOGIN'} size={'md'} />
         <div className="text-primary-text text-sm text-center">
           <p className="flex justify-center">

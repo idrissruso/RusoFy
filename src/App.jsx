@@ -16,7 +16,11 @@ function App() {
     <BrowserRouter>
       <Toaster />
       <Routes>
-        <Route element={<AppLayout />}>
+        <Route
+          element={<AppLayout />}
+          fallback={<div>Loading...</div>}
+          errorFallback={({ error }) => <div>Error: {error.message}</div>}
+        >
           <Route index element={<Navigate replace to="/home" />} />
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
