@@ -10,10 +10,12 @@ import Cart from './pages/Cart'
 import Checkout from './pages/Checkout'
 import Product from './pages/Product'
 import { Toaster } from 'react-hot-toast'
+import Spinner from './components/Spinner'
 
 function App() {
   return (
     <BrowserRouter>
+      <Spinner />
       <Toaster />
       <Routes>
         <Route

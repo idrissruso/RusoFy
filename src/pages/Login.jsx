@@ -4,17 +4,22 @@ import { Link } from 'react-router-dom'
 import login from '../services/loginService'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 function Login() {
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
   async function handleSubmit(e) {
     e.preventDefault()
     const username = e.target.name.value
     const password = e.target.password.value
-    const result = await login(username, password)
+    const result = await login(username, password, dispatch)
     if (result.status === 200) {
       toast.success(result.result)
+      navigate('/home')
     } else {
       toast.error(result.result)
     }

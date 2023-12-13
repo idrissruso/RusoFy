@@ -1,12 +1,14 @@
 import { backendUrl } from '../utils/urls'
+import { setLoading } from '../reducers/loadingSlice'
 
-export default async function login(username, password) {
+export default async function login(username, password, dispatch) {
   const data = {
     username,
     password,
   }
 
   try {
+    dispatch(setLoading(true))
     const response = await fetch(`${backendUrl}/auth/token/`, {
       method: 'POST',
       headers: {
@@ -14,10 +16,11 @@ export default async function login(username, password) {
       },
       body: JSON.stringify(data),
     })
+    dispatch(setLoading(false))
+    const result = await response.json()
 
     if (!response.ok) {
       try {
-        const result = await response.json()
         return {
           status: response.status,
           result:
@@ -36,6 +39,7 @@ export default async function login(username, password) {
       return {
         status: response.status,
         result: 'Logged in successfully.',
+        data: result,
       }
     }
   } catch (error) {
