@@ -26,6 +26,7 @@ function Login() {
       const accessToken = result.data.access
       const loggedInUser = jwtDecode(accessToken)
       dispatch(loginAction(loggedInUser.userName))
+      localStorage.setItem('activeUser', loggedInUser.userName)
     } else {
       toast.error(result.result)
     }
