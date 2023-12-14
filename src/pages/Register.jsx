@@ -5,19 +5,22 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import register from '../services/registerService'
 import toast from 'react-hot-toast'
+import { useDispatch } from 'react-redux'
 
 function Register() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   async function handleSubmit(e) {
     e.preventDefault()
     const result = register(
       e.target.name.value,
       e.target.email.value,
-      e.target.password.value
+      e.target.password.value,
+      dispatch
     )
     if ((await result).status === 200) {
       toast.success('Registered Successfully')

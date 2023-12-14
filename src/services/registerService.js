@@ -1,6 +1,7 @@
 import { backendUrl } from '../utils/urls'
+import { setLoading } from '../reducers/loadingSlice'
 
-export default async function register(name, email, password) {
+export default async function register(name, email, password, dispatch) {
   const data = {
     username: name,
     email,
@@ -9,6 +10,7 @@ export default async function register(name, email, password) {
   }
 
   try {
+    dispatch(setLoading(true))
     const response = await fetch(`${backendUrl}/auth/register/`, {
       method: 'POST',
       headers: {
@@ -16,6 +18,7 @@ export default async function register(name, email, password) {
       },
       body: JSON.stringify(data),
     })
+    dispatch(setLoading(false))
 
     if (!response.ok) {
       let result
