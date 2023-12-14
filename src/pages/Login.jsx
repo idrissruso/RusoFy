@@ -6,6 +6,8 @@ import { useState } from 'react'
 import toast from 'react-hot-toast'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { jwtDecode } from 'jwt-decode'
+import { login as loginAction } from '../feutures/auth/loginSlice'
 
 function Login() {
   const [userName, setUserName] = useState('')
@@ -17,9 +19,13 @@ function Login() {
     const username = e.target.name.value
     const password = e.target.password.value
     const result = await login(username, password, dispatch)
+
     if (result.status === 200) {
       toast.success(result.result)
       navigate('/home')
+      const accessToken = result.data.access
+      const loggedInUser = jwtDecode(accessToken)
+      dispatch(loginAction(loggedInUser.userName))
     } else {
       toast.error(result.result)
     }
