@@ -1,11 +1,15 @@
-function Button({ type, text, onClick, size }) {
-  const color = type === 'primary' ? 'bg-tertiary-100' : 'bg-tertiary-300'
+function Button({ type, text, onClick, size, outlined }) {
+  const color =
+    type === 'primary'
+      ? 'bg-tertiary-100'
+      : type === 'secondary'
+      ? 'bg-tertiary-400'
+      : 'bg-transparent border-2 border-tertiary-100 text-tertiary-100 hover:bg-tertiary-100 hover:text-primary-text'
   const hoverColor =
     type === 'primary' ? 'hover:bg-tertiary-200' : 'hover:bg-tertiary-400'
   const sizeClass =
-    size === 'lg' || size === 'md'
-      ? 'lg:px-5 lg:py-3 px-3 py-1.5'
-      : 'lg:px-2 lg:py-1 px-1 py-1.5'
+    size === 'lg' ? 'px-6 py-3' : size === 'md' ? 'px-4 py-2' : 'px-2 py-1'
+
   return (
     <button
       className={`self-start ${color} ${sizeClass} rounded-lg text-sm drop-shadow-lg text-btn-100 animate-fadeUp font-medium ${hoverColor} hover:shadow-none transition-all duration-300 ease-in-out ${

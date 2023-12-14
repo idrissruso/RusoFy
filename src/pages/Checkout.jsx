@@ -2,10 +2,11 @@ import PageHeader from '../components/PageHeaders'
 import Input from '../components/Input'
 import Button from '../components/Button'
 import OrderSum from '../components/OrderSum'
+import ProtectedRoute from '../feutures/auth/ProtectedRoute'
 
 function Checkout() {
   return (
-    <div>
+    <ProtectedRoute>
       <PageHeader>Place your Order</PageHeader>
       <div className="grid md:grid-cols-2 mt-5 gap-10 ">
         <div className="flex flex-col gap-4">
@@ -21,7 +22,7 @@ function Checkout() {
           <OrderSum />
         </div>
       </div>
-    </div>
+    </ProtectedRoute>
   )
 }
 

@@ -1,10 +1,11 @@
 import PageHeader from '../components/PageHeaders'
 import Input from '../components/Input'
 import OrderSum from '../components/OrderSum'
+import ProtectedRoute from '../feutures/auth/ProtectedRoute'
 
 function Cart() {
   return (
-    <div>
+    <ProtectedRoute>
       <PageHeader>Shopping Cart</PageHeader>
       <div className="flex justify-between text-primary-text mt-5 gap-9 flex-wrap">
         <img
@@ -33,7 +34,7 @@ function Cart() {
         </div>
         <OrderSum />
       </div>
-    </div>
+    </ProtectedRoute>
   )
 }
 
