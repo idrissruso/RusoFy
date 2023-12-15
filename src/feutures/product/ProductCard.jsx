@@ -35,7 +35,7 @@ function ProductCard({ product, type }) {
       />
       <div className="flex flex-col items-center gap-2 pb-4">
         <p className="text-primary-text text-lg font-medium">{name}</p>
-        <p className="text-lg text-primary-text">{price}</p>
+        <p className="text-lg font-thin text-secondary-100">${price}</p>
       </div>
     </div>
   )
