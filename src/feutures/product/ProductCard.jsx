@@ -1,9 +1,19 @@
+import { useNavigate } from 'react-router-dom'
+
 function ProductCard({ product, type }) {
   const { name, price, image_url, company } = product
+  const Navigate = useNavigate()
+
+  function handleClick(id) {
+    Navigate(`/products/${id}`)
+  }
 
   if (type === 'list') {
     return (
-      <div className="flex flex-col w-full bg-primary-200 p-4 drop-shadow-xl rounded-xl mt-10 gap-5 hover:drop-shadow-2xl transition-all duration-300 cursor-pointer">
+      <div
+        onClick={() => handleClick(product.id)}
+        className="flex flex-col w-full bg-primary-200 p-4 drop-shadow-xl rounded-xl mt-10 gap-5 hover:drop-shadow-2xl transition-all duration-300 cursor-pointer"
+      >
         <div className="flex flex-row items-center gap-5 w-full group">
           <img
             src={image_url}
@@ -27,7 +37,10 @@ function ProductCard({ product, type }) {
   }
 
   return (
-    <div className="flex flex-col bg-primary-200 p-4 drop-shadow-xl rounded-xl mt-10 gap-5 cursor-pointer hover:drop-shadow-2xl duration-300 transition-all">
+    <div
+      onClick={() => handleClick(product.id)}
+      className="flex flex-col bg-primary-200 p-4 drop-shadow-xl rounded-xl mt-10 gap-5 cursor-pointer hover:drop-shadow-2xl duration-300 transition-all"
+    >
       <img
         src={image_url}
         alt={name}

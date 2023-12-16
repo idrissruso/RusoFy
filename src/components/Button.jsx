@@ -15,6 +15,7 @@ function Button({ type, text, onClick, size, outlined }) {
       className={`self-start ${color} ${sizeClass} rounded-lg text-sm drop-shadow-lg text-btn-100 animate-fadeUp font-medium ${hoverColor} hover:shadow-none transition-all duration-300 ease-in-out ${
         size !== 'lg' && 'w-full'
       } ${size === 'md' && 'w-full'}`}
+      onClick={onClick}
     >
       {text}
     </button>
