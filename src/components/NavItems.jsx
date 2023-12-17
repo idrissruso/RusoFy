@@ -10,7 +10,7 @@ function NavItems() {
       <ul className="lg:flex hidden text-primary-text">
         <NavItem link="/Home" text="Home" />
         <NavItem link="/about" text="About" />
-        <NavItem link="/products" text="Products" />
+        <NavItem link="/products/1" text="Products" />
         {user && (
           <>
             <NavItem link="/cart" text="Cart" />

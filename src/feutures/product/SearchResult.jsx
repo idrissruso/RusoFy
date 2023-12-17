@@ -1,77 +1,45 @@
 import { useState } from 'react'
 import Header from '../../components/Header'
 import ProductCard from '../product/ProductCard'
-
-const products = [
-  {
-    id: 1,
-    name: 'Product 1',
-    price: 100,
-    link: 'https://images.pexels.com/photos/943150/pexels-photo-943150.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    company: 'Company 1',
-  },
-  {
-    id: 2,
-    name: 'Product 2',
-    price: 100,
-    link: 'https://images.pexels.com/photos/943150/pexels-photo-943150.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    company: 'Company 2',
-  },
-  {
-    id: 3,
-    name: 'Product 3',
-    price: 100,
-    link: 'https://images.pexels.com/photos/943150/pexels-photo-943150.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    company: 'Company 3',
-  },
-  {
-    id: 4,
-    name: 'Product 4',
-    price: 100,
-    link: 'https://images.pexels.com/photos/943150/pexels-photo-943150.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    company: 'Company 4',
-  },
-  {
-    id: 5,
-    name: 'Product 5',
-    price: 100,
-    link: 'https://images.pexels.com/photos/943150/pexels-photo-943150.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    company: 'Company 5',
-  },
-  {
-    id: 6,
-    name: 'Product 6',
-    price: 100,
-    link: 'https://images.pexels.com/photos/943150/pexels-photo-943150.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    company: 'Company 6',
-  },
-  {
-    id: 7,
-    name: 'Product 7',
-    price: 100,
-    link: 'https://images.pexels.com/photos/943150/pexels-photo-943150.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    company: 'Company 7',
-  },
-  {
-    id: 8,
-    name: 'Product 8',
-    price: 100,
-    link: 'https://images.pexels.com/photos/943150/pexels-photo-943150.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    company: 'Company 8',
-  },
-  {
-    id: 9,
-    name: 'Product 9',
-    price: 100,
-    link: 'https://images.pexels.com/photos/943150/pexels-photo-943150.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    company: 'Company 9',
-  },
-]
+import { useQuery } from '@tanstack/react-query'
+import { getProducts } from '../../services/productServices'
+import { useParams } from 'react-router-dom'
+import Spinner from '../../components/Spinner'
+import toast from 'react-hot-toast'
 
 function SearchResult() {
   const [view, setView] = useState('grid')
+  const { page } = useParams()
+  const {
+    data: products,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ['products'],
+    queryFn: () => getProducts(page),
+  })
+
   function handleView(value) {
     setView(value)
+  }
+
+  if (isLoading) {
+    return <Spinner type={'page'} />
+  }
+
+  if (isError) {
+    toast.error('Something went wrong')
+  }
+
+  if (!products.length) {
+    return (
+      <div className="text-primary-text mt-10">
+        <Header view={view} handleView={handleView} />
+        <div className="flex justify-center items-center h-[50vh]">
+          <h2 className="text-3xl">No products found</h2>
+        </div>
+      </div>
+    )
   }
 
   return (

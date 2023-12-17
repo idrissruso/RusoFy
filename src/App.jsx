@@ -31,7 +31,7 @@ function App() {
             <Route index element={<Navigate replace to="/home" />} />
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/products" element={<Products />} />
+            <Route path="/products/:page" element={<Products />} />
             <Route path="/products/:id" element={<Product />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/cart" element={<Cart />} />

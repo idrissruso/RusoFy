@@ -1,7 +1,14 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 
 function Pagination() {
   const [page, setPage] = useState(1)
+  const Navigate = useNavigate()
+
+  useEffect(() => {
+    Navigate(`/products/${page}`)
+  }, [page, Navigate])
 
   function nextPage() {
     setPage((prev) => (prev >= 3 ? 1 : prev + 1))
