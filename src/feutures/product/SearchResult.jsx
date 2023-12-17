@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import Header from '../../components/Header'
 import ProductCard from '../product/ProductCard'
+import { useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getProducts } from '../../services/productServices'
-import { useParams } from 'react-router-dom'
 import Spinner from '../../components/Spinner'
 import toast from 'react-hot-toast'
 
@@ -12,11 +12,17 @@ function SearchResult() {
   const { page } = useParams()
   const {
     data: products,
-    isLoading,
     isError,
+    isLoading,
   } = useQuery({
-    queryKey: ['products'],
+    queryKey: ['products', page],
     queryFn: () => getProducts(page),
+    config: {
+      retry: 1,
+      retryDelay: 1000,
+      staleTime: 1000 * 60 * 5,
+      cacheTime: 1000 * 60 * 5,
+    },
   })
 
   function handleView(value) {
@@ -24,19 +30,19 @@ function SearchResult() {
   }
 
   if (isLoading) {
-    return <Spinner type={'page'} />
+    return <Spinner />
   }
 
   if (isError) {
-    toast.error('Something went wrong')
+    toast.error('Error fetching products')
   }
 
-  if (!products.length) {
+  if (products.length === 0) {
     return (
       <div className="text-primary-text mt-10">
         <Header view={view} handleView={handleView} />
-        <div className="flex justify-center items-center h-[50vh]">
-          <h2 className="text-3xl">No products found</h2>
+        <div className="flex justify-center items-center h-96">
+          <h1 className="text-3xl">No products found</h1>
         </div>
       </div>
     )

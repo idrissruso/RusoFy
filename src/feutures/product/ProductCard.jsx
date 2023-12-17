@@ -5,7 +5,7 @@ function ProductCard({ product, type }) {
   const Navigate = useNavigate()
 
   function handleClick(id) {
-    Navigate(`/products/${id}`)
+    Navigate(`/product/${id}`)
   }
 
   if (type === 'list') {

@@ -1,14 +1,10 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
 function Pagination() {
   const [page, setPage] = useState(1)
-  const Navigate = useNavigate()
-
-  useEffect(() => {
-    Navigate(`/products/${page}`)
-  }, [page, Navigate])
+  const { page: currentPage } = useParams()
+  console.log(currentPage)
 
   function nextPage() {
     setPage((prev) => (prev >= 3 ? 1 : prev + 1))
@@ -23,29 +19,34 @@ function Pagination() {
   }
 
   return (
-    <div className="flex w-[15rem] bg-primary-600 self-end rounded-lg text-primary-text mt-5">
-      <Page page={page} onClick={prevPage}>
+    <form
+      action={`${page}`}
+      method="get"
+      className="flex w-[15rem] bg-primary-600 self-end rounded-lg text-primary-text mt-5"
+    >
+      <Page currentPage={currentPage} page={page} onClick={prevPage}>
         Prev
       </Page>
-      <Page page={page} setCurrentPage={changePage}>
+      <Page currentPage={currentPage} page={page} setCurrentPage={changePage}>
         1
       </Page>
-      <Page page={page} setCurrentPage={changePage}>
+      <Page currentPage={currentPage} page={page} setCurrentPage={changePage}>
         2
       </Page>
-      <Page page={page} setCurrentPage={changePage}>
+      <Page currentPage={currentPage} page={page} setCurrentPage={changePage}>
         3
       </Page>
-      <Page page={page} onClick={nextPage}>
+      <Page currentPage={currentPage} page={page} onClick={nextPage}>
         Next
       </Page>
-    </div>
+    </form>
   )
 }
 
-function Page({ children, onClick, setCurrentPage, page }) {
+function Page({ children, onClick, setCurrentPage, page, currentPage }) {
   return (
-    <div
+    <button
+      type="submit"
       className={`shrink hover:bg-primary-700 flex-1 flex justify-center px-3 py-2 cursor-pointer uppercase ${
         children === 'Prev'
           ? 'rounded-l-lg'
@@ -53,7 +54,9 @@ function Page({ children, onClick, setCurrentPage, page }) {
           ? 'rounded-r-lg'
           : ''
       } ${
-        page && children && page.toString() === children.toString()
+        currentPage &&
+        children &&
+        currentPage.toString() === children.toString()
           ? 'bg-primary-700'
           : ''
       } transition-all duration-300`}
@@ -62,7 +65,7 @@ function Page({ children, onClick, setCurrentPage, page }) {
       }}
     >
       {children}
-    </div>
+    </button>
   )
 }
 
