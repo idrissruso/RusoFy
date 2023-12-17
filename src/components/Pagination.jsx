@@ -1,10 +1,9 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 function Pagination() {
-  const [page, setPage] = useState(1)
   const { page: currentPage } = useParams()
-  console.log(currentPage)
+  const [page, setPage] = useState(Number(currentPage))
 
   function nextPage() {
     setPage((prev) => (prev >= 3 ? 1 : prev + 1))
