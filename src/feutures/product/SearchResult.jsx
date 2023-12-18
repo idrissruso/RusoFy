@@ -1,36 +1,24 @@
 import { useState } from 'react'
 import Header from '../../components/Header'
 import ProductCard from '../product/ProductCard'
-import { useParams } from 'react-router-dom'
-import { useQuery } from '@tanstack/react-query'
-import { getProducts } from '../../services/productServices'
 import Spinner from '../../components/Spinner'
 import toast from 'react-hot-toast'
+import { useContext } from 'react'
+import { FilterContext } from './filterContext'
 
 function SearchResult() {
   const [view, setView] = useState('grid')
-  const { page } = useParams()
   const {
-    data: products,
-    isError,
-    isLoading,
-  } = useQuery({
-    queryKey: ['products', page],
-    queryFn: () => getProducts(page),
-    config: {
-      retry: 1,
-      retryDelay: 1000,
-      staleTime: 1000 * 60 * 5,
-      cacheTime: 1000 * 60 * 5,
-    },
-  })
+    query: { isError, isLoading },
+    products,
+  } = useContext(FilterContext)
 
   function handleView(value) {
     setView(value)
   }
 
   if (isLoading) {
-    return <Spinner />
+    return <Spinner type={'page'} />
   }
 
   if (isError) {
@@ -50,7 +38,7 @@ function SearchResult() {
 
   return (
     <div className="text-primary-text mt-10">
-      <Header view={view} handleView={handleView} />
+      <Header view={view} handleView={handleView} products={products.length} />
       <div>
         {view === 'grid' ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

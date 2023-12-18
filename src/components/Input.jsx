@@ -1,4 +1,10 @@
-function Input({ type = 'text', options, name, id, onChange, value, size }) {
+import { useContext } from 'react'
+import { FilterContext } from '../feutures/product/filterContext'
+
+function Input({ type = 'text', options, name, id, value, size }) {
+  const { handleSearch, handleGetCategory, handleGetCompany } =
+    useContext(FilterContext) || {}
+
   const inputStyles = `bg-primary-200 border-[1px] border-gray-500 rounded-lg px-2 py-1 text-primary-text focus:outline-none focus:ring-1 focus:ring-gray-500 active:ring-1 active:ring-gray-500 ${
     size && 'px-3.5 py-2.5'
   }`
@@ -12,7 +18,7 @@ function Input({ type = 'text', options, name, id, onChange, value, size }) {
         <input
           type={type}
           id={id}
-          onChange={(e) => onChange(e.target.value)}
+          onChange={(e) => handleSearch(e.target.value)}
           value={value}
           className={inputStyles}
         />
@@ -20,7 +26,13 @@ function Input({ type = 'text', options, name, id, onChange, value, size }) {
         <select
           name={name}
           id={id}
-          onChange={onChange}
+          onChange={(e) => {
+            if (name.includes('category')) {
+              handleGetCategory(e.target.value)
+            } else {
+              handleGetCompany(e.target.value)
+            }
+          }}
           value={value}
           defaultValue="all"
           className={inputStyles}

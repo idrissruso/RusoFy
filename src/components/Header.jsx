@@ -1,7 +1,7 @@
 import { AiFillAppstore, AiOutlineUnorderedList } from 'react-icons/ai'
 import { useState } from 'react'
 
-function Header({ view, handleView }) {
+function Header({ view, handleView, products }) {
   const [shakeAnimation, setShakeAnimation] = useState(false)
 
   function setValue(value) {
@@ -13,7 +13,7 @@ function Header({ view, handleView }) {
   }
   return (
     <div className="flex justify-between pb-5 border-b-[1px] border-btn-100">
-      <h1>2 products</h1>
+      <h1>{products} products</h1>
       <div className="flex justify-between text-btn-100">
         <Icon
           key="grid"
