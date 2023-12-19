@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { FilterContext } from '../feutures/product/filterContext'
 
-function Input({ type = 'text', options, name, id, value, size }) {
+function Input({ type = 'text', options, name, id, value, size, onChange }) {
   const { handleSearch, handleGetCategory, handleGetCompany } =
     useContext(FilterContext) || {}
 
@@ -18,7 +18,10 @@ function Input({ type = 'text', options, name, id, value, size }) {
         <input
           type={type}
           id={id}
-          onChange={(e) => handleSearch(e.target.value)}
+          onChange={(e) => {
+            handleSearch?.(e.target.value)
+            onChange?.(e.target.value)
+          }}
           value={value}
           className={inputStyles}
         />

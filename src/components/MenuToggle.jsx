@@ -39,7 +39,7 @@ function NavMenu() {
     <ul className="absolute z-10 top-12 bg-primary-100 px-4 py-2 flex flex-col shrink text-slate-200 rounded-sm min-w-[7rem]">
       <NavItem link="/Home" text="Home" />
       <NavItem link="/about" text="About" />
-      <NavItem link="/products" text="Products" />
+      <NavItem link="/products/1" text="Products" />
       <NavItem link="/orders" text="Orders" />
     </ul>
   )
