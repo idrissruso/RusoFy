@@ -35,7 +35,7 @@ function Filter({ children }) {
   function handleGetCategory(value) {
     if (value) {
       console.log(value)
-      const filteredProducts = products.filter(
+      const filteredProducts = data.filter(
         (product) => product.category == value
       )
       setProducts(filteredProducts)
@@ -46,7 +46,7 @@ function Filter({ children }) {
 
   function handleGetPrice(value) {
     if (value) {
-      const filteredProducts = products.filter(
+      const filteredProducts = data.filter(
         (product) => product.price <= Number(value)
       )
       setProducts(filteredProducts)
@@ -58,7 +58,7 @@ function Filter({ children }) {
   function handleGetCompany(value) {
     if (value) {
       console.log(value)
-      const filteredProducts = products.filter((product) => {
+      const filteredProducts = data.filter((product) => {
         console.log(product.company)
         return product.company == value
       })

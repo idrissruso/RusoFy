@@ -42,9 +42,9 @@ function Input({ type = 'text', options, name, id, value, size, onChange }) {
         >
           {type !== 'amount' && <option value="">all</option>}
 
-          {options.map((option) => (
-            <option key={option} value={option}>
-              {option}
+          {options?.map((option) => (
+            <option key={option.name} value={option.id}>
+              {option.name}
             </option>
           ))}
         </select>
