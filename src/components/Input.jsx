@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { FilterContext } from '../feutures/product/filterContext'
 
 function Input({ type = 'text', options, name, id, value, size, onChange }) {
-  const { handleSearch, handleGetCategory, handleGetCompany } =
+  const { handleSearch, handleGetCategory, handleGetCompany, handleSortBy } =
     useContext(FilterContext) || {}
 
   const inputStyles = `bg-primary-200 border-[1px] border-gray-500 rounded-lg px-2 py-1 text-primary-text focus:outline-none focus:ring-1 focus:ring-gray-500 active:ring-1 active:ring-gray-500 ${
@@ -32,19 +32,23 @@ function Input({ type = 'text', options, name, id, value, size, onChange }) {
           onChange={(e) => {
             if (name.includes('category')) {
               handleGetCategory(e.target.value)
+            } else if (name.includes('Sort By')) {
+              handleSortBy(e.target.value)
             } else {
               handleGetCompany(e.target.value)
             }
           }}
           value={value}
-          defaultValue="all"
           className={inputStyles}
         >
           {type !== 'amount' && <option value="">all</option>}
 
           {options?.map((option) => (
-            <option key={option.name} value={option.id}>
-              {option.name}
+            <option
+              key={option.name ? option.name : option}
+              value={option.id ? option.id : option}
+            >
+              {option.name ? option.name : option}
             </option>
           ))}
         </select>

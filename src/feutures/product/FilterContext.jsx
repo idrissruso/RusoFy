@@ -68,6 +68,26 @@ function Filter({ children }) {
     }
   }
 
+  function handleSortBy(value) {
+    if (value === 'price-lowest') {
+      const sortedProducts = [...products].sort((a, b) => a.price - b.price)
+      setProducts(sortedProducts)
+    } else if (value === 'price-highest') {
+      const sortedProducts = [...products].sort((a, b) => b.price - a.price)
+      setProducts(sortedProducts)
+    } else if (value === 'name-a') {
+      const sortedProducts = [...products].sort((a, b) =>
+        a.name.localeCompare(b.name)
+      )
+      setProducts(sortedProducts)
+    } else if (value === 'name-z') {
+      const sortedProducts = [...products].sort((a, b) =>
+        b.name.localeCompare(a.name)
+      )
+      setProducts(sortedProducts)
+    }
+  }
+
   return (
     <FilterContext.Provider
       value={{
@@ -77,6 +97,7 @@ function Filter({ children }) {
         handleGetCategory,
         handleGetPrice,
         handleGetCompany,
+        handleSortBy,
       }}
     >
       {children}

@@ -43,15 +43,17 @@ function SearchForm() {
       <Input type={'text'} name={'Search Product'} />
       <Input type={'select'} name={'Select category'} options={categories} />
       <Input type={'select'} name={'Select Company'} options={companies} />
-      <Input type={'select'} options={['1', '2', '3']} name={'Sort By'} />
+      <Input
+        type={'select'}
+        options={['price-lowest', 'price-highest', 'name-a', 'name-z']}
+        name={'Sort By'}
+      />
       <SSlider />
       <CheckBox />
 
+      <div className="flex items-center justify-center flex-col"></div>
       <div className="flex items-center justify-center flex-col">
         <Button text={'Search'} type={'primary'} />
-      </div>
-      <div className="flex items-center justify-center flex-col">
-        <Button text={'Reset'} />
       </div>
     </div>
   )
