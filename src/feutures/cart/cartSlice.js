@@ -14,7 +14,6 @@ const cartSlice = createSlice({
   reducers: {
     addItemToCart(state, action) {
       const { data: newItem, amount: quantity } = action.payload
-      console.log('newItem', newItem)
       const existingItem = state.items.find((item) => item.id === newItem.id)
       state.totalQuantity = state.totalQuantity + Number(quantity)
       //take only 2 digits after the decimal point

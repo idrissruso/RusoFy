@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 function Cart() {
   const cart = useSelector((state) => state.cartSlice)
-  console.log(cart)
   const { totalQuantity } = cart
 
   return (
