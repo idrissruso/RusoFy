@@ -6,15 +6,26 @@ import { getProductById } from '../services/productServices'
 import Spinner from '../components/Spinner'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
+import { getCompanyById } from '../services/companyService'
+import { useEffect, useState } from 'react'
 
 function Product() {
   const { id } = useParams()
   const Navigate = useNavigate()
+  const [company, setCompany] = useState('')
+
   const { data, isLoading, isError } = useQuery({
     queryKey: ['product', id],
     queryFn: () => getProductById(id),
   })
-  const { name, price, image_url, company, description } = data || {}
+  const { name, price, image_url, company: compId, description } = data || {}
+  useEffect(() => {
+    if (compId) {
+      getCompanyById(compId).then((res) => {
+        setCompany(res.name)
+      })
+    }
+  }, [compId, data])
 
   if (isLoading) {
     return <Spinner type={'page'} />
