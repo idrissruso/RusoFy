@@ -88,6 +88,15 @@ function Filter({ children }) {
     }
   }
 
+  function handleFreeShipping(status) {
+    if (status) {
+      const filteredProducts = data.filter((product) => product.shipping)
+      setProducts(filteredProducts)
+    } else {
+      setProducts(data)
+    }
+  }
+
   return (
     <FilterContext.Provider
       value={{
@@ -98,6 +107,7 @@ function Filter({ children }) {
         handleGetPrice,
         handleGetCompany,
         handleSortBy,
+        handleFreeShipping,
       }}
     >
       {children}
