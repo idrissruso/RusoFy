@@ -1,8 +1,14 @@
 import { useNavigate } from 'react-router-dom'
+import { useQuery } from '@tanstack/react-query'
+import { getCompanyById } from '../../services/companyService'
 
 function ProductCard({ product, type }) {
   const { name, price, image_url, company } = product
   const Navigate = useNavigate()
+  const { data } = useQuery({
+    queryKey: ['company', company],
+    queryFn: () => getCompanyById(company),
+  })
 
   function handleClick(id) {
     Navigate(`/product/${id}`)
@@ -24,7 +30,7 @@ function ProductCard({ product, type }) {
             <div className="flex flex-col items-start gap-2 pb-4">
               <p className="text-primary-text text-lg font-medium">{name}</p>
               <span className="text-sm primary-text-100 font-thin ">
-                {company}
+                {data.name}
               </span>
             </div>
             <h1 className="text-lg font-semibold text-primary-text">
