@@ -2,7 +2,9 @@ import PageHeader from '../components/PageHeaders'
 import Input from '../components/Input'
 import OrderSum from '../components/OrderSum'
 import ProtectedRoute from '../feutures/auth/ProtectedRoute'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { removeItemFromCart } from '../feutures/cart/cartSlice'
+import toast from 'react-hot-toast'
 
 function Cart() {
   const cart = useSelector((state) => state.cartSlice)
@@ -13,7 +15,7 @@ function Cart() {
       {cart.totalQuantity > 0 ? (
         <>
           <PageHeader>Shopping Cart</PageHeader>
-          <div className="flex gap-6">
+          <div className="flex gap-3">
             <div className=" flex-1">
               {items.map((item) => (
                 <CartItem key={item.id} item={item} />
@@ -33,6 +35,8 @@ function Cart() {
 }
 
 function CartItem({ item }) {
+  const dispatch = useDispatch()
+
   const { name, price, image_url, company, quantity } = item
   return (
     <div className="flex justify-between text-primary-text mt-5 flex-wrap">
@@ -56,7 +60,13 @@ function CartItem({ item }) {
           options={Array.from({ length: 10 }, (_, i) => i + 1)}
           value={quantity}
         />
-        <span className="text-sm text-tertiary-100 hover:underline underline-offset-2 cursor-pointer">
+        <span
+          onClick={() => {
+            dispatch(removeItemFromCart(item.id))
+            toast.success('Removed from cart')
+          }}
+          className="text-sm text-tertiary-100 hover:underline underline-offset-2 cursor-pointer"
+        >
           Remove
         </span>
       </div>
