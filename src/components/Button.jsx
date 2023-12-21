@@ -1,4 +1,4 @@
-function Button({ type, text, onClick, size, outlined }) {
+function Button({ type, text, onClick, size }) {
   const color =
     type === 'primary'
       ? 'bg-tertiary-100'

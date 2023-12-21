@@ -34,6 +34,8 @@ function Input({ type = 'text', options, name, id, value, size, onChange }) {
               handleGetCategory(e.target.value)
             } else if (name.includes('Sort By')) {
               handleSortBy(e.target.value)
+            } else if (name.includes('amount')) {
+              onChange?.(e.target.value)
             } else {
               handleGetCompany(e.target.value)
             }

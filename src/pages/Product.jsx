@@ -8,11 +8,15 @@ import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 import { getCompanyById } from '../services/companyService'
 import { useEffect, useState } from 'react'
+import { addItemToCart } from '../feutures/cart/cartSlice'
+import { useDispatch } from 'react-redux'
 
 function Product() {
   const { id } = useParams()
   const Navigate = useNavigate()
   const [company, setCompany] = useState('')
+  const [amount, setAmount] = useState(1)
+  const dispatch = useDispatch()
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ['product', id],
@@ -26,6 +30,12 @@ function Product() {
       })
     }
   }, [compId, data])
+
+  function handleAddToCart() {
+    dispatch(addItemToCart({ data, amount }))
+    Navigate('/cart')
+    toast.success('Added to cart')
+  }
 
   if (isLoading) {
     return <Spinner type={'page'} />
@@ -66,9 +76,19 @@ function Product() {
             <div className="w-6 h-6 rounded-full bg-primary-400"></div>
           </div>
           <div className="w-1/6">
-            <Input name={'amount'} type={'amount'} options={['1', '2', '3']} />
+            <Input
+              name={'amount'}
+              type={'amount'}
+              options={['1', '2', '3']}
+              onChange={(amount) => setAmount(amount)}
+            />
           </div>
-          <Button text="ADD TO BAG" type={'primary'} size={'lg'} />
+          <Button
+            text="ADD TO BAG"
+            type={'primary'}
+            size={'lg'}
+            onClick={handleAddToCart}
+          />
         </div>
       </div>
     </div>

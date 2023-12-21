@@ -13,23 +13,25 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addItemToCart(state, action) {
-      const newItem = action.payload
+      const { data: newItem, amount: quantity } = action.payload
+      console.log('newItem', newItem)
       const existingItem = state.items.find((item) => item.id === newItem.id)
-      state.totalQuantity++
-      state.totalPrice = state.totalPrice + newItem.price
+      state.totalQuantity = state.totalQuantity + Number(quantity)
+      //take only 2 digits after the decimal point
+      state.totalPrice = Number(
+        Number(state.totalPrice + newItem.price * Number(quantity)).toFixed(2)
+      )
       if (!existingItem) {
         state.items.push({
-          id: newItem.id,
-          price: newItem.price,
-          quantity: 1,
-          totalPrice: newItem.price,
-          name: newItem.title,
-          description: newItem.description,
-          image: newItem.image,
+          ...newItem,
+          quantity: Number(quantity),
+          totalPrice: newItem.price * Number(quantity),
         })
       } else {
-        existingItem.quantity++
-        existingItem.totalPrice = existingItem.totalPrice + newItem.price
+        existingItem.quantity = existingItem.quantity + Number(quantity)
+        existingItem.totalPrice = Number(
+          Number(existingItem.totalPrice) + newItem.price * Number(quantity)
+        ).toFixed(2)
       }
     },
     removeItemFromCart(state, action) {
@@ -52,14 +54,24 @@ const cartSlice = createSlice({
     onQuantityChange(state, action) {
       const { id, quantity } = action.payload
       const existingItem = state.items.find((item) => item.id === id)
-      state.totalQuantity =
-        state.totalQuantity - existingItem.quantity + quantity
-      state.totalPrice =
-        state.totalPrice -
-        existingItem.totalPrice +
-        existingItem.price * quantity
-      existingItem.quantity = quantity
-      existingItem.totalPrice = existingItem.price * quantity
+      if (state.quantity > quantity) {
+        state.totalQuantity = state.totalQuantity - (state.quantity - quantity)
+        state.totalPrice =
+          state.totalPrice - (state.quantity - quantity) * existingItem.price
+      } else {
+        state.totalQuantity = state.totalQuantity + (quantity - state.quantity)
+        state.totalPrice =
+          state.totalPrice + (quantity - state.quantity) * existingItem.price
+      }
     },
   },
 })
+
+export const {
+  addItemToCart,
+  removeItemFromCart,
+  clearCart,
+  onQuantityChange,
+} = cartSlice.actions
+
+export default cartSlice.reducer
