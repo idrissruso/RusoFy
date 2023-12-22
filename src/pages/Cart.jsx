@@ -16,7 +16,7 @@ function Cart() {
       {cart.totalQuantity > 0 ? (
         <>
           <PageHeader>Shopping Cart</PageHeader>
-          <div className="flex gap-3">
+          <div className="flex gap-3 flex-wrap">
             <div className=" flex-1">
               {items.map((item) => (
                 <CartItem key={item.id} item={item} />
@@ -49,7 +49,7 @@ function CartItem({ item }) {
   }
 
   return (
-    <div className="flex gap-20 text-primary-text mt-5 flex-wrap">
+    <div className="flex gap-20 text-primary-text mt-5">
       <img
         src={image_url}
         alt=""

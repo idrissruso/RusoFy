@@ -58,7 +58,9 @@ const cartSlice = createSlice({
         const quantityDiff = Number(quantity) - existingItem.quantity
 
         state.totalQuantity += quantityDiff
-        state.totalPrice += quantityDiff * existingItem.price
+        state.totalPrice += Number(
+          Number(quantityDiff * existingItem.price).toFixed(2)
+        )
 
         existingItem.quantity = Number(quantity)
       }
