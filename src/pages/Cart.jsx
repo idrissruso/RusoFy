@@ -4,6 +4,7 @@ import OrderSum from '../components/OrderSum'
 import ProtectedRoute from '../feutures/auth/ProtectedRoute'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeItemFromCart } from '../feutures/cart/cartSlice'
+import { onQuantityChange } from '../feutures/cart/cartSlice'
 import toast from 'react-hot-toast'
 
 function Cart() {
@@ -35,11 +36,20 @@ function Cart() {
 }
 
 function CartItem({ item }) {
+  const { id, name, price, image_url, company, quantity } = item
   const dispatch = useDispatch()
 
-  const { name, price, image_url, company, quantity } = item
+  function handleQuantityChanges(newQuantity) {
+    dispatch(onQuantityChange({ id, quantity: newQuantity }))
+  }
+
+  function handleRemoveItem() {
+    dispatch(removeItemFromCart(item.id))
+    toast.success('Removed from cart')
+  }
+
   return (
-    <div className="flex justify-between text-primary-text mt-5 flex-wrap">
+    <div className="flex gap-20 text-primary-text mt-5 flex-wrap">
       <img
         src={image_url}
         alt=""
@@ -47,32 +57,31 @@ function CartItem({ item }) {
       />
       <div className="flex flex-col gap-2">
         <h2 className="font-semibold">{name}</h2>
-        <p className=" font-thin text-sm">{company}</p>
+        <p className="font-thin text-sm">{company}</p>
         <p>
           <span>Color:</span>
           <span></span>
         </p>
       </div>
       <div className="flex flex-col gap-2">
-        <h2 className='" font-thin text-sm"'>1</h2>
+        <h2 className="font-thin text-sm">{quantity}</h2>
         <Input
           type="amount"
+          name={'amount'}
           options={Array.from({ length: 10 }, (_, i) => i + 1)}
           value={quantity}
+          onChange={(newQuantity) => handleQuantityChanges(newQuantity)}
         />
         <span
-          onClick={() => {
-            dispatch(removeItemFromCart(item.id))
-            toast.success('Removed from cart')
-          }}
+          onClick={handleRemoveItem}
           className="text-sm text-tertiary-100 hover:underline underline-offset-2 cursor-pointer"
         >
           Remove
         </span>
       </div>
       <div className="flex flex-col gap-2">
-        <h2 className=" font-thin text-sm">Price</h2>
-        <p className=" font-semibold">${price}</p>
+        <h2 className="font-thin text-sm">Price</h2>
+        <p className="font-semibold">${price}</p>
       </div>
     </div>
   )

@@ -53,14 +53,14 @@ const cartSlice = createSlice({
     onQuantityChange(state, action) {
       const { id, quantity } = action.payload
       const existingItem = state.items.find((item) => item.id === id)
-      if (state.quantity > quantity) {
-        state.totalQuantity = state.totalQuantity - (state.quantity - quantity)
-        state.totalPrice =
-          state.totalPrice - (state.quantity - quantity) * existingItem.price
-      } else {
-        state.totalQuantity = state.totalQuantity + (quantity - state.quantity)
-        state.totalPrice =
-          state.totalPrice + (quantity - state.quantity) * existingItem.price
+
+      if (existingItem) {
+        const quantityDiff = Number(quantity) - existingItem.quantity
+
+        state.totalQuantity += quantityDiff
+        state.totalPrice += quantityDiff * existingItem.price
+
+        existingItem.quantity = Number(quantity)
       }
     },
   },

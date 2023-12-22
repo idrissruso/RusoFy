@@ -79,7 +79,7 @@ function Product() {
             <Input
               name={'amount'}
               type={'amount'}
-              options={['1', '2', '3']}
+              options={Array.from({ length: 10 }, (_, i) => i + 1)}
               onChange={(amount) => setAmount(amount)}
             />
           </div>
