@@ -4,6 +4,7 @@ const activeUser = localStorage.getItem('activeUser')
 
 const initialState = {
   user: activeUser ? activeUser : null,
+  userId: '',
 }
 
 const userSlice = createSlice({

@@ -16,7 +16,6 @@ const cartSlice = createSlice({
       const { data: newItem, amount: quantity } = action.payload
       const existingItem = state.items.find((item) => item.id === newItem.id)
       state.totalQuantity = state.totalQuantity + Number(quantity)
-      //take only 2 digits after the decimal point
       state.totalPrice = Number(
         Number(state.totalPrice + newItem.price * Number(quantity)).toFixed(2)
       )
@@ -53,15 +52,12 @@ const cartSlice = createSlice({
     onQuantityChange(state, action) {
       const { id, quantity } = action.payload
       const existingItem = state.items.find((item) => item.id === id)
-
       if (existingItem) {
         const quantityDiff = Number(quantity) - existingItem.quantity
-
         state.totalQuantity += quantityDiff
         state.totalPrice += Number(
           Number(quantityDiff * existingItem.price).toFixed(2)
         )
-
         existingItem.quantity = Number(quantity)
       }
     },
