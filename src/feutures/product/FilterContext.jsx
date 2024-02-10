@@ -36,7 +36,7 @@ function Filter({ children }) {
     if (value) {
       console.log(value)
       const filteredProducts = data.filter(
-        (product) => product.category == value
+        (product) => product.category === value
       )
       setProducts(filteredProducts)
     } else if (value === '' || value === 'all') {
@@ -60,7 +60,7 @@ function Filter({ children }) {
       console.log(value)
       const filteredProducts = data.filter((product) => {
         console.log(product.company)
-        return product.company == value
+        return product.company === value
       })
       setProducts(filteredProducts)
     } else if (value === '' || value === 'all') {
